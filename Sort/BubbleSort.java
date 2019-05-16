@@ -11,7 +11,7 @@ public class BubbleSort {
         for(int k=1;k<list.length;k++){
             for(int i=0;i<list.length-k;i++){
                 if(list[i]>list[i+1]){
-
+                    Tools.swap(list,i,i+1);
                 }
             }
         }
