@@ -15,14 +15,69 @@ public class Heap <E extends Comparable<E>> {
 
     public Heap(E[] objects){
         for(int i=0;i<objects.length;i++){
-
+            add(objects[i]);
         }
     }
-    public void add(E newObject){
 
+    public void add(E newObject) {
+        list.add(newObject);
+        int cur = list.size() - 1;
+
+        while (cur > 0) {
+            //得到父节点在数组线性表中的 Index
+            int parentIndex = (cur - 1) / 2;
+            //如果子节点比父节点大，就交换
+            if (list.get(cur).compareTo(
+                    list.get(parentIndex)) > 0) {
+                E temp = list.get(cur);
+                list.set(cur, list.get(parentIndex));
+                list.set(parentIndex, temp)
+            } else {
+                break;
+            }
+            cur = parentIndex;
+        }
     }
     public E remove(){
+        if(list.size()==0){
+            return null;
+        }
 
+        E removeObject = list.get(0);
+        //数组的配套操作，最后一个元素调到首位，然后开始调整二叉树成 Heap
+        list.set(0,list.get(list.size()-1));
+        list.remove(list.size()-1);
+
+        int cur=0;
+        while (cur<list.size()){
+            int leftChildIndex = 2*cur+1;
+            int rightChildIndex = 2*cur+2;
+
+            if(leftChildIndex>=list.size()){
+                //此时已经是 Heap
+                break;
+            }
+            int  maxIndex=leftChildIndex;
+            if(rightChildIndex<list.size()){
+                if(list.get(maxIndex).compareTo(
+                        list.get(rightChildIndex))<0){
+                    maxIndex=rightChildIndex;
+                }
+            }
+
+            if(list.get(cur).compareTo(list.get(maxIndex))<0){
+                E temp = list.get(maxIndex);
+
+                list.set(maxIndex,list.get(cur));
+                list.set(cur,temp);
+                cur=maxIndex;
+            }
+            else {
+                break;
+            }
+        }
+
+        return removeObject;
     }
 
     public int getSize(){
