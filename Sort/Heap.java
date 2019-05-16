@@ -31,7 +31,7 @@ public class Heap <E extends Comparable<E>> {
                     list.get(parentIndex)) > 0) {
                 E temp = list.get(cur);
                 list.set(cur, list.get(parentIndex));
-                list.set(parentIndex, temp)
+                list.set(parentIndex, temp);
             } else {
                 break;
             }
