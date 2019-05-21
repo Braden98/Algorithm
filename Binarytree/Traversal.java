@@ -3,7 +3,8 @@ package Algorithm.Binarytree;
 import java.util.Stack;
 
 /**
- * @Description 二叉树的{前序,中序,后序}叉乘{递归，非递归}遍历
+ * @Description 二叉树的{前序,中序,后序}叉乘{递归，非递归}遍历,
+ * 方法名写的很清楚了
  * @Author ubique
  * @Date 2019/5/20 9:44 PM
  */
