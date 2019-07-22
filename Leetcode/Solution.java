@@ -19,8 +19,8 @@ import java.util.List;
 //  }
 
 public class Solution {
-    public List<Integer> inorderTraversal(TreeNode root) {
-        List<Integer> ans = new ArrayList<>();
-        ans.addAll(inorderTraversal(root.left));
-    }
+//    public List<Integer> inorderTraversal(TreeNode root) {
+//        List<Integer> ans = new ArrayList<>();
+//        ans.addAll(inorderTraversal(root.left));
+//    }
 }
