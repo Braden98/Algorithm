@@ -37,4 +37,14 @@ public class levelOrder {
             process(root.right,level+1,ans);
 
     }
+    private void process(Node root,int level, List<List<Integer>> ans){
+        // 取下标前先确认长度，这里也可用.size()代替 .get(level)
+        if(ans.size() == level)
+            ans.add(new ArrayList<Integer>());
+
+        ans.get(level).add(root.val);
+        for(int i=0;i<root.children.size();i++)
+            if(root.children.get(i) != null)
+                process(root.children.get(i),level+1,ans);
+    }
 }
